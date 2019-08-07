@@ -10,6 +10,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { OrderDialogComponent } from './order-dialog/order-dialog.component';
     MatButtonModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatSelectModule,
+    TextFieldModule
   ],
   entryComponents: [
     OrderDialogComponent

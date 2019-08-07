@@ -1,1 +1,13 @@
-<p>order-dialog works!</p>
+<div class="dialog-container">
+    <div class="dialog-title">מה תרצה שנביא מ{{data.restaurantName}} ?</div>
+    <textarea class="order-content"></textarea>
+    <mat-form-field>
+            <mat-label>איך תשלם</mat-label>
+            <mat-select>
+            <mat-option *ngFor="let option of options" [value]="option.value">
+                {{option.displayName}}
+            </mat-option>
+            </mat-select>
+    </mat-form-field>
+    <button mat-button class="order-button" (click)="onRequest()">בקש</button>
+</div>

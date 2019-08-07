@@ -9,7 +9,7 @@ export class CardListComponent implements OnInit {
 
   constructor() { }
 
-  events:[] = [
+  events:object[] = [
     {
       _id: new Date().getTime(),
       restaurantName:"דיקסי" ,

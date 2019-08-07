@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, DialogPosition} from '@angular/material/dialog';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 
 @Component({
@@ -23,8 +23,14 @@ export class EventCardComponent implements OnInit {
 
   openOrderDialog():void {
     const dialogRef = this.dialog.open(OrderDialogComponent, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
+      width: '25%',
+      data: {
+        restaurantName: this.restaurantName
+      },
+      height: '50vh',
+      direction: 'rtl',
+      minHeight: '50vh',
+      maxHeight: '50vh'
     });
   }
 
