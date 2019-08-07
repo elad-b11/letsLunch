@@ -1,4 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { NewEventDialogComponent } from './new-event-dialog/new-event-dialog.component';
 
 @Component({
   selector: 'app-new-event',
@@ -6,11 +8,19 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./new-event.component.scss']
 })
 export class NewEventComponent implements OnInit {
-  checkedJoin = true;
-  checkedTakeaway = true;
   
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
   
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewEventDialogComponent, {
+   
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
   ngOnInit() {
    
   }

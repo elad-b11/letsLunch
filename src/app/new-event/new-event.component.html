@@ -1,30 +1,3 @@
-<form class="example-form">
-
-  <table cellspacing="0">
-    <tr>
-      <td>
-
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="מתי">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-      </td>
-      <td>
-        <mat-form-field>
-          <input matInput placeholder="איפה" value="">
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
-  <mat-form-field>
-    <textarea matInput placeholder="עם מי"></textarea>
-  </mat-form-field>
-</form>
-
-<p>
-    <mat-checkbox [(ngModel)]="checkedJoin"> ניתן להצטרף לארוחה :)</mat-checkbox>
-</p>
-
-<mat-checkbox [(ngModel)]="checkedTakeaway"> ניתן להזמין דרכנו משלוח</mat-checkbox>
+<button id="add-new-even-button" mat-mini-fab (click)="openDialog()">
+  <mat-icon>add</mat-icon>
+</button>

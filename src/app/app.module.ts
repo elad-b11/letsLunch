@@ -8,7 +8,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { CardListComponent } from './card-list/card-list.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
@@ -21,7 +20,8 @@ import { MatNativeDateModule } from '@angular/material';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NewEventComponent } from './new-event/new-event.component';
 import { FormsModule } from '@angular/forms';
-
+import { NewEventDialogComponent } from './new-event/new-event-dialog/new-event-dialog.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -29,8 +29,9 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     EventCardComponent,
     CardListComponent,
-    OrderDialogComponent
-    NewEventComponent
+    OrderDialogComponent,
+    NewEventComponent,
+    NewEventDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +51,13 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatCheckboxModule,
     FormsModule ,
-  ],
-  entryComponents: [
+    MatIconModule,
+    MatChipsModule
+ ],
+ entryComponents:[
+  NewEventDialogComponent,
     OrderDialogComponent
-  ],
+ ],
   providers: [],
   bootstrap: [AppComponent]
 })
