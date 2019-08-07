@@ -8,12 +8,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { CardListComponent } from './card-list/card-list.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventCardComponent,
-    CardListComponent
+    CardListComponent,
+    OrderDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatButtonModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    OrderDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
