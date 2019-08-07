@@ -66,7 +66,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     FormsModule ,
     MatIconModule,
     MatChipsModule,
-    HttpClientModule
+    HttpClientModule,
     NgxMaterialTimepickerModule
  ],
  entryComponents:[
