@@ -10,14 +10,15 @@
 	<mat-drawer-container dir="rtl">
 		<mat-drawer #snav [mode]="'side'">
 			<mat-nav-list>
-        <a mat-list-item routerLink=".">בקש כרטיס חבר</a> 
+        <a mat-list-item routerLink="/hever">בקש כרטיס חבר</a> 
         <a mat-list-item routerLink=".">התראות חבר</a> 
         <a mat-list-item routerLink=".">התראות אישיות</a> 
 			</mat-nav-list>
 		</mat-drawer>
 
 		<mat-drawer-content class="nav-container">
-			<app-card-list class="nav-container"></app-card-list>
+			<router-outlet></router-outlet>
 		</mat-drawer-content>
+		
 	</mat-drawer-container>
 </div>

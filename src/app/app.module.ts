@@ -29,6 +29,7 @@ import { NewEventDialogComponent } from './new-event/new-event-dialog/new-event-
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { HeverComponent } from './hever/hever.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     NewEventComponent,
     NewEventDialogComponent,
     CardListComponent,
-    MainNavComponent
+    MainNavComponent,
+    HeverComponent
   ],
   imports: [
     BrowserModule,

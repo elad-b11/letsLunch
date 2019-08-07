@@ -1,0 +1,21 @@
+<div class="event-container">
+        <!-- <div>
+            <img src="../../assets/icons/bluehever.png" alt="Smiley face" height="100" width="100">
+        </div> -->
+    <div>
+            <h2 class="title"> בקש חבר</h2>
+            <div class="details">
+                    <mat-form-field dir="ltr">
+                            <input matInput [matDatepicker]="picker" placeholder="מתי" [value]="date.value">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+            </div>
+
+            <!-- <div class="details">למתי?  <input class="date-input" matInput [matDatepicker]="picker" placeholder="מתי" [value]="date.value"></div> -->
+            <div class="details"><label >שם: <input class="name-input" [(ngModel)]="name" placeholder="Name"/></label></div>
+            <div class="details"> <label >מס' טלפון: <input class="tel-input" [(ngModel)]="number" placeholder="Number"/></label></div>
+            <button id="btn" mat-button [disabled]="!valid()" (click)="sendHeverAsk()"  routerLink="">שלח</button>
+    </div>
+</div>
+   
