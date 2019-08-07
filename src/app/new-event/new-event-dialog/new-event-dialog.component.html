@@ -1,41 +1,40 @@
 <form class="example-form">
 
-  <table cellspacing="0">
-    <tr>
-      <td>
+    <table cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field>
+                    <input matInput placeholder="איפה" value="">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field dir="ltr">
+                    <input matInput [matDatepicker]="picker" placeholder="מתי" [value]="date.value">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
 
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="מתי">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+            </td>
 
-      </td>
-      <td>
-        <mat-form-field>
-          <input matInput placeholder="איפה" value="">
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
-  <!-- <mat-form-field>
-    <textarea matInput placeholder="עם מי"></textarea>
-  </mat-form-field> -->
+        </tr>
+    </table>
 
-  <mat-form-field class="example-chip-list">
-    <mat-chip-list #chipList aria-label="Fruit selection">
-      <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
-               [removable]="removable" (removed)="remove(fruit)">
-        {{fruit.name}}
-        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-      </mat-chip>
-      <input placeholder="New fruit..."
-             [matChipInputFor]="chipList"
-             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-             [matChipInputAddOnBlur]="addOnBlur"
-             (matChipInputTokenEnd)="add($event)">
-    </mat-chip-list>
-  </mat-form-field>
+    <div dir="ltr">
+        <ngx-timepicker-field [format]="24" [defaultTime]="'12:00'"></ngx-timepicker-field>
+    </div>
+
+
+    <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="pepole selection">
+            <mat-chip *ngFor="let person of persons" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(person)">
+                {{person.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="עם מי" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+    </mat-form-field>
 
 
 </form>

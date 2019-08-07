@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
 import { NewEventDialogComponent } from './new-event/new-event-dialog/new-event-dialog.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatChipsModule,
     HttpClientModule
+    NgxMaterialTimepickerModule
  ],
  entryComponents:[
     NewEventDialogComponent,

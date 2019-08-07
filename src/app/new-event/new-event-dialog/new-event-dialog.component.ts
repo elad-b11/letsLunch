@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {COMMA, ENTER, SPACE} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
+import { FormControl } from '@angular/forms';
 
-export interface Fruit {
+export interface Person {
   name: string;
 }
 
@@ -19,16 +20,17 @@ export class NewEventDialogComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  fruits: Fruit[] = [
-    {name: 'Lemon'},
-    {name: 'Lime'},
-    {name: 'Apple'},
+  date = new FormControl(new Date());
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
+  persons: Person[] = [
   ];
 
-  constructor() { }
+  constructor() {
+     
+   }
 
- 
+
+
 
   add(event: MatChipInputEvent): void {
     const input = event.input;
@@ -36,7 +38,7 @@ export class NewEventDialogComponent implements OnInit {
 
     // Add our fruit
     if ((value || '').trim()) {
-      this.fruits.push({name: value.trim()});
+      this.persons.push({name: value.trim()});
     }
 
     // Reset the input value
@@ -45,11 +47,11 @@ export class NewEventDialogComponent implements OnInit {
     }
   }
 
-  remove(fruit: Fruit): void {
-    const index = this.fruits.indexOf(fruit);
+  remove(person: Person): void {
+    const index = this.persons.indexOf(person);
 
     if (index >= 0) {
-      this.fruits.splice(index, 1);
+      this.persons.splice(index, 1);
     }
   }
 
