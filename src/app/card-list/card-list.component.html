@@ -1,0 +1,11 @@
+<div class="event-container">
+    <div *ngFor="let event of events; let i = index">
+        <app-event-card [restaurantName] = "event.restaurantName" 
+                        [eventDate] = "event.eventDate"
+                        [attendees] = "event.attendees"
+                        [isJoinable] = "event.isJoinable"
+                        [canOrderFrom] = "event.canOrderFrom"
+                        [description]= "event.description">
+        </app-event-card>
+    </div>
+</div>
