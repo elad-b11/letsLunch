@@ -5,9 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EventsApiService {
+  events:object[] ;
 
   constructor(private httpClient: HttpClient) { 
-  
+    
   }
   baseUrl = "http://129.213.110.238:3000/events";
 
@@ -30,7 +31,7 @@ export class EventsApiService {
     }
     return new Promise((resolve, reject) => {
       this.httpClient.post(this.baseUrl, eventObj).subscribe((resultId) => {
-            resolve(resultId.toString());
+            resolve(resultId['_id']);
       });
     });
   }
@@ -54,7 +55,7 @@ export class EventsApiService {
   deleteEvent(eventId):Promise<string> {
     return new Promise((resolve,reject) => {
       this.httpClient.delete(`${this.baseUrl}/${eventId}`).subscribe((deletedId) => {
-        resolve(deletedId.toString());
+        resolve(deletedId['_id']);
       })
     });
   }

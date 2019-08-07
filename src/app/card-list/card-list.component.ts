@@ -18,6 +18,7 @@ export class CardListComponent implements OnInit {
         event['eventDate'] = new Date(event['eventDate']);
         return event;
       });
+      this.eventsApi.events = this.events;
     })
   }
 
