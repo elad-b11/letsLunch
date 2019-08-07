@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,15 @@ import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {TextFieldModule} from '@angular/cdk/text-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NewEventComponent } from './new-event/new-event.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -20,9 +30,11 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     EventCardComponent,
     CardListComponent,
     OrderDialogComponent
+    NewEventComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MatCardModule,
     MatButtonModule,
@@ -31,7 +43,13 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     MatDialogModule,
     MatIconModule,
     MatSelectModule,
-    TextFieldModule
+    TextFieldModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    FormsModule ,
   ],
   entryComponents: [
     OrderDialogComponent
