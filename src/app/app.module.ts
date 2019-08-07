@@ -29,9 +29,9 @@ import { NewEventDialogComponent } from './new-event/new-event-dialog/new-event-
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {MatBadgeModule} from '@angular/material/badge';
 import { HeverComponent } from './hever/hever.component';
 import { HeverNotficationComponent } from './hever-notfication/hever-notfication.component';
-
 
 @NgModule({
   declarations: [
@@ -71,7 +71,8 @@ import { HeverNotficationComponent } from './hever-notfication/hever-notfication
     MatIconModule,
     MatChipsModule,
     HttpClientModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    MatBadgeModule
  ],
  entryComponents:[
     NewEventDialogComponent,

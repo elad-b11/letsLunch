@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, share } from 'rxjs/operators';
+import { EventNotificationsApiService } from '../event-notifications-api.service';
 
 @Component({
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.scss']
 })
-export class MainNavComponent {
+export class MainNavComponent implements OnInit  {
   fillerNav = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
 
   fillerContent = Array(50).fill(0).map(() =>
@@ -20,6 +21,15 @@ export class MainNavComponent {
       share()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver,
+              public notificationApi: EventNotificationsApiService) {}
+
+  eventNotifications = [];
+
+  ngOnInit() {
+    this.notificationApi.getReleventNotifications().then((notifications)=> {
+      this.eventNotifications = notifications;
+    });
+  }
 
 }
