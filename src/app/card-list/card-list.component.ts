@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsApiService } from '../events-api.service';
 
 @Component({
   selector: 'app-card-list',
@@ -7,48 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public eventsApi:EventsApiService) { }
 
-  events:object[] = [
-    {
-      _id: new Date().getTime(),
-      restaurantName:"דיקסי" ,
-      eventDate: new Date(),
-      attendees: ["דנה", "דני", "דין"],
-      isJoinable: true,
-      canOrderFrom: true,
-      description: "הולכים היום לדיקסי ב13:00 לחגוג יום הולדת"
-    },
-    {
-      _id: new Date().getTime(),
-      restaurantName:"גירף" ,
-      eventDate: new Date(),
-      attendees: ["דנה", "דני", "דין"],
-      isJoinable: true,
-      canOrderFrom: true,
-      description: "הולכים היום לדיקסי ב13:00 לחגוג יום הולדת"
-    },
-    {
-      _id: new Date().getTime(),
-      restaurantName:"קרדן" ,
-      eventDate: new Date(),
-      attendees: ["דנה", "דני", "דין"],
-      isJoinable: true,
-      canOrderFrom: true,
-      description: "הולכים היום לדיקסי ב13:00 לחגוג יום הולדת"
-    },
-    {
-      _id: new Date().getTime(),
-      restaurantName:"חומוס אליהו" ,
-      eventDate: new Date(),
-      attendees: ["דני", "דין"],
-      isJoinable: true,
-      canOrderFrom: true,
-      description: "הולכים היום לדיקסי ב13:00 לחגוג יום הולדת"
-    }
-  ];
+  events:object[] = [];
 
   ngOnInit() {
+    this.eventsApi.getAllEvents().then((events) => {
+      this.events = events.map((event) => {
+        event['eventDate'] = new Date(event['eventDate']);
+        return event;
+      });
+    })
   }
 
 }

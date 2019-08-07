@@ -22,6 +22,7 @@ import { NewEventComponent } from './new-event/new-event.component';
 import { FormsModule } from '@angular/forms';
 import { NewEventDialogComponent } from './new-event/new-event-dialog/new-event-dialog.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -52,10 +53,11 @@ import {MatChipsModule} from '@angular/material/chips';
     MatCheckboxModule,
     FormsModule ,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    HttpClientModule
  ],
  entryComponents:[
-  NewEventDialogComponent,
+    NewEventDialogComponent,
     OrderDialogComponent
  ],
   providers: [],
