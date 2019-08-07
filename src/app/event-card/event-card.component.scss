@@ -1,4 +1,14 @@
-.example-card {
+.event-card {
     max-width: 100%;
-    text-align: right
+    text-align: right;
+    margin: 2% 0 0 0
+}
+
+.card-header {
+    display: inline-block;
+}
+
+.card-action {
+    display: flex;
+    justify-content: end;
 }

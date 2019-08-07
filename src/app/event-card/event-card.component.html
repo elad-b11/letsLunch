@@ -1,5 +1,5 @@
-<mat-card class="example-card">
-    <mat-card-header>
+<mat-card class="event-card">
+    <mat-card-header class="card-header">
       <mat-card-title>{{restaurantName}}</mat-card-title>
       <mat-card-subtitle>{{eventDate.toISOString()}}</mat-card-subtitle>
     </mat-card-header>
@@ -9,7 +9,7 @@
         </p>
         <span>באים: {{attendees.join(', ')}}</span>  
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions class="card-action">
       <button mat-button>הצטרף</button>
       <button mat-button>Take away</button>
     </mat-card-actions>
