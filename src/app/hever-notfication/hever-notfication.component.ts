@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HeverApiService} from '../hever-api.service';
 
 @Component({
   selector: 'app-hever-notfication',
@@ -7,18 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeverNotficationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private heverApi:HeverApiService) { }
 
   ngOnInit() {
+    this.heverApi.getAllHeverRequests().then((data:object[]) => {
+      this.notifications = data;
+    });
   }
 
-  notifications :object[] = [{Name:'ירדן',Date:new Date(),Tel:'0547894456'},
-  {Name:'אנה',Date:new Date(),Tel:'0502165546'},
-  {Name:'אוהד',Date:new Date(),Tel:'0524565521'},
-  {Name:'שמעון',Date:new Date(),Tel:'0524כ65521'},
-  {Name:'חנה',Date:new Date(),Tel:'052456ג521'}];
+  notifications :object[] = [];
 
-  removeHever(index:number){
-      this.notifications.splice(index,1);
+  removeHever(id:string){
+      this.heverApi.deleteHeverRequest(id).then((deletedId) => {
+        this.notifications = this.notifications.filter((notification) => notification['id'] != deletedId);
+      })
   }
 }
