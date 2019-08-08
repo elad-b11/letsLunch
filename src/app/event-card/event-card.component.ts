@@ -58,6 +58,10 @@ export class EventCardComponent implements OnInit {
     });
   }
 
+  getDateString(date) {
+    return new Date(date).toISOString();
+  }
+
   @Input() restaurantName: string
   @Input() eventDate:Date
   @Input() attendees:Array<string>
