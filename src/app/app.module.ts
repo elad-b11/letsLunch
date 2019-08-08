@@ -32,6 +32,10 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {MatBadgeModule} from '@angular/material/badge';
 import { HeverComponent } from './hever/hever.component';
 import { HeverNotficationComponent } from './hever-notfication/hever-notfication.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import {
+     MatTableModule,MatMenuModule, MatProgressSpinnerModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { HeverNotficationComponent } from './hever-notfication/hever-notfication
     CardListComponent,
     MainNavComponent,
     HeverComponent,
-    HeverNotficationComponent
+    HeverNotficationComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,6 @@ import { HeverNotficationComponent } from './hever-notfication/hever-notfication
     MatIconModule,
     MatListModule,
     MatDialogModule,
-    MatIconModule,
     MatSelectModule,
     TextFieldModule,
     MatInputModule,
@@ -68,11 +72,16 @@ import { HeverNotficationComponent } from './hever-notfication/hever-notfication
     MatNativeDateModule,
     MatCheckboxModule,
     FormsModule ,
-    MatIconModule,
     MatChipsModule,
     HttpClientModule,
     NgxMaterialTimepickerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatButtonModule, 
+    MatCardModule, 
+    MatDialogModule, 
+    MatInputModule, 
+    MatTableModule,
+    MatProgressSpinnerModule
  ],
  entryComponents:[
     NewEventDialogComponent,

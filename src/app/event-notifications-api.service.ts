@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {EventsApiService} from './events-api.service'
+import {AuthServiceService} from './auth-service.service'
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import {EventsApiService} from './events-api.service'
 export class EventNotificationsApiService {
 
   constructor(private httpClient: HttpClient,
-              private eventsApi: EventsApiService) { }
+              private eventsApi: EventsApiService,
+              private authApi: AuthServiceService) { }
 
   baseUrl = "http://129.213.110.238:3000/eventNotifications";
 
@@ -27,7 +29,7 @@ export class EventNotificationsApiService {
       contant,
       paymentKind,
       linkToEvent,
-      userName: "אלעד"
+      userName: this.authApi.getUser()
     };
 
     return new Promise((resolve, reject) => {
@@ -46,7 +48,7 @@ export class EventNotificationsApiService {
   }
 
   async getReleventNotifications() {
-    let userName = "אלעד";
+    let userName = this.authApi.getUser();
     let exsistingEvents = {};
     let notifications = await this.getAllEventNotifications();
     let releventNotifications = [];

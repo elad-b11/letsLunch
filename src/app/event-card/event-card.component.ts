@@ -3,6 +3,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialog, DialogPosition} from '@angular/material/dialog';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { EventsApiService } from '../events-api.service';
+import {AuthServiceService} from '../auth-service.service';
 
 @Component({
   selector: 'app-event-card',
@@ -13,13 +14,14 @@ export class EventCardComponent implements OnInit {
 
   constructor(private _snackBar: MatSnackBar, 
               public dialog: MatDialog,
-              public eventsApi:EventsApiService) {}
+              public eventsApi:EventsApiService,
+              private authApi:AuthServiceService) {}
 
   ngOnInit() {
   }
 
   openSnackBar():void {
-    let userName = "אלעד";
+    let userName = this.authApi.getUser();
 
     if(this.attendees.includes(userName)) {
       this._snackBar.open("יוזר כבר קיים באירוע", "OK", {

@@ -10,10 +10,11 @@
 	<mat-drawer-container dir="rtl">
 		<mat-drawer #snav [mode]="'side'">
 			<mat-nav-list>
-        <a mat-list-item routerLink="/hever">בקש כרטיס חבר</a> 
-        <a mat-list-item routerLink="/hevernotification">התראות חבר</a> 
-		<a mat-list-item routerLink="." [matBadge]="eventNotifications.length" 
-										[matBadgeHidden]="eventNotifications.length<=0" >התראות אישיות</a> 
+					<a mat-list-item routerLink="">ראשי</a> 
+					<a mat-list-item routerLink="/hever">בקש כרטיס חבר</a> 
+					<a mat-list-item routerLink="/hevernotification">התראות חבר</a> 
+					<a mat-list-item [matBadge]="eventNotifications.length" 
+									 [matBadgeHidden]="eventNotifications.length<=0" >התראות אישיות</a> 
 			</mat-nav-list>
 		</mat-drawer>
 
