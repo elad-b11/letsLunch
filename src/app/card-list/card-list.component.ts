@@ -22,4 +22,8 @@ export class CardListComponent implements OnInit {
     })
   }
 
+  getAsDate(date) {
+    return new Date(date);
+  }
+
 }
