@@ -21,6 +21,7 @@ export class HeverNotficationComponent implements OnInit {
   removeHever(id:string){
       this.heverApi.deleteHeverRequest(id).then((deletedId) => {
         this.notifications = this.notifications.filter((notification) => notification['id'] != deletedId);
-      })
+      });
+      this.heverApi.getAllHeverRequests();
   }
 }

@@ -10,7 +10,6 @@ import { HeverApiService  } from '../hever-api.service';
   styleUrls: ['./hever.component.scss']
 })
 export class HeverComponent implements OnInit {
-  name: string = '';
   number: string = '';
   amount:number;
   date = new Date();
@@ -23,9 +22,8 @@ export class HeverComponent implements OnInit {
   }
 
   valid(){
-    let nameValid =  (this.name!= '' && this.name != undefined);
     let numberValid =  (this.number!= '' && this.number != undefined && this.number.match(/\d/g).length===10);
-    return nameValid && numberValid;
+    return numberValid;
   }
 
   sendHeverAsk(){
