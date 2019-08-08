@@ -59,7 +59,11 @@ export class EventCardComponent implements OnInit {
   }
 
   getDateString(date) {
-    return new Date(date).toISOString();
+    var dt = new Date(date).toISOString().split("T");
+    var d = dt[0];
+    var t = dt[1].slice(0,5);
+
+    return d +"  "+ t;
   }
 
   @Input() restaurantName: string
