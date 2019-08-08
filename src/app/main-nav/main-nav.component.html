@@ -15,6 +15,7 @@
 					<a mat-list-item routerLink="/hevernotification">התראות חבר</a> 
 					<a mat-list-item routerLink="/personalnotification" [matBadge]="eventNotifications.length" 
 									 [matBadgeHidden]="eventNotifications.length<=0" >התראות אישיות</a> 
+					<a mat-list-item (click)="disconnectUser()">התנתק</a> 
 			</mat-nav-list>
 		</mat-drawer>
 

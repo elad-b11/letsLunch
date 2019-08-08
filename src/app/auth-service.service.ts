@@ -18,4 +18,8 @@ export class AuthServiceService {
   setUser(userName:string):void {
     localStorage.setItem("userName", userName)
   }
+
+  disconnectUser():void {
+    localStorage.removeItem("userName");
+  }
 }

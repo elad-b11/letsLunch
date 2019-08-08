@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, share } from 'rxjs/operators';
 import { EventNotificationsApiService } from '../event-notifications-api.service';
+import {AuthServiceService} from '../auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-nav',
@@ -22,7 +24,9 @@ export class MainNavComponent implements OnInit  {
     );
 
   constructor(private breakpointObserver: BreakpointObserver,
-              public notificationApi: EventNotificationsApiService) {}
+              public notificationApi: EventNotificationsApiService,
+              public authApi:AuthServiceService,
+              private router: Router) {}
 
   eventNotifications = [];
 
@@ -30,6 +34,11 @@ export class MainNavComponent implements OnInit  {
     this.notificationApi.getReleventNotifications().then((notifications)=> {
       this.eventNotifications = notifications;
     });
+  }
+  
+  disconnectUser() {
+    this.authApi.disconnectUser();
+    this.router.navigate(['login']);
   }
 
 }
