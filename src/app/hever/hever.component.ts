@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormControl } from '@angular/forms';
+import { HeverApiService  } from '../hever-api.service';
+
 
 @Component({
   selector: 'app-hever',
@@ -10,10 +12,12 @@ import { FormControl } from '@angular/forms';
 export class HeverComponent implements OnInit {
   name: string = '';
   number: string = '';
+  amount:number;
+  date = new Date();
 
 
-  constructor(private _snackBar: MatSnackBar) { }
-  date = new FormControl(new Date());
+  constructor(private _snackBar: MatSnackBar, private heverApi: HeverApiService ) { }
+ 
 
   ngOnInit() {
   }
@@ -36,6 +40,13 @@ export class HeverComponent implements OnInit {
         duration: 3000,
       });
     }
+
+    this.heverApi.createHeverRequest(this.number,this.amount,this.date).then((eventId) => {
+      this.heverApi.getAllHeverRequests();
+
+      
+    })
+
   
   }
 
