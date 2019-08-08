@@ -4,12 +4,14 @@
         <tr>
             <td>
                 <mat-form-field>
-                    <input matInput [(ngModel)]="restaurantName" placeholder="איפה" value="" [ngModelOptions]="{standalone: true}">
+                    <input matInput [(ngModel)]="restaurantName" placeholder="איפה" value=""
+                        [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field dir="ltr">
-                    <input matInput [matDatepicker]="picker" [(ngModel)]="eventDate" placeholder="מתי" [ngModelOptions]="{standalone: true}" [value]="eventDate.value">
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="eventDate" placeholder="מתי"
+                        [ngModelOptions]="{standalone: true}" [value]="eventDate.value">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -18,11 +20,12 @@
     </table>
 
     <div dir="ltr">
-        <ngx-timepicker-field [format]="24" [defaultTime]="'12:00'" [(ngModel)]="eventTime" [ngModelOptions]="{standalone: true}"></ngx-timepicker-field>
+        <ngx-timepicker-field [format]="24" [defaultTime]="'12:00'" [(ngModel)]="eventTime"
+            [ngModelOptions]="{standalone: true}"></ngx-timepicker-field>
     </div>
 
 
-    <mat-form-field >
+    <mat-form-field>
         <mat-chip-list #chipList aria-label="pepole selection">
             <mat-chip *ngFor="let person of persons" [selectable]="selectable" [removable]="removable"
                 (removed)="remove(person)">
@@ -42,5 +45,10 @@
 <mat-checkbox [(ngModel)]="checkedTakeaway"> ניתן להזמין דרכנו משלוח</mat-checkbox>
 
 <p>
-        <button mat-flat-button (click)="saveNewEvent()">בתאבון</button>
+    <mat-form-field>
+        <input matInput [(ngModel)]="description" placeholder="הערות" value="" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+</p>
+    <p>
+    <button mat-flat-button (click)="saveNewEvent()">בתאבון</button>
 </p>

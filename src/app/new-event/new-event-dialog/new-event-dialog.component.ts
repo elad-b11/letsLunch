@@ -21,6 +21,7 @@ export class NewEventDialogComponent implements OnInit {
   addOnBlur = true;
   eventDate = new FormControl(new Date());
   restaurantName="";
+  description="";
   readonly separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
   persons: string[] = [
   ];
@@ -52,7 +53,7 @@ export class NewEventDialogComponent implements OnInit {
   }
 
   saveNewEvent(): void{
-    this.eventsApi.createEvent(this.restaurantName, this.eventDate, this.persons, this.checkedJoin, this.checkedTakeaway, "").then((eventId) => {
+    this.eventsApi.createEvent(this.restaurantName, this.eventDate, this.persons, this.checkedJoin, this.checkedTakeaway, this.description).then((eventId) => {
       this.eventsApi.getEventById(eventId).then((event)=>{
        
         this.eventsApi.events.push(event);
