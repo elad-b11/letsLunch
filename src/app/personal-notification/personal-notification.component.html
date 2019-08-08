@@ -1,0 +1,26 @@
+<div class="personal-notification">
+    <div class="noNotification" *ngIf="this.allNotification.length == 0">
+        <div>אין לך התראות... :)</div>
+    </div>
+    <div *ngIf="this.allNotification.length > 0">
+            <div *ngFor="let notification of this.allNotification; let i = index">
+                    <div class="data">
+                            <button mat-mini-fab style="margin-right: 95%">
+                                    <mat-icon>done</mat-icon>
+                            </button>
+                        <div class="a" style="font-weight: bold; font-size: 20px">בקשה {{i + 1}}</div>
+                            
+                        <div class="a"><span style="font-weight: bold">מי ביקש? </span>
+                        
+                            {{notification.userName}}</div>
+                        <div class="a"> 
+                                <span style="font-weight: bold">מה ביקש? </span>
+                            {{notification.contant}} </div>
+                    </div>
+
+                
+            </div>
+    </div>
+</div>
+
+<!-- //allNotification -->

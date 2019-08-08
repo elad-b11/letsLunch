@@ -4,8 +4,10 @@ import { HeverComponent } from './hever/hever.component';
 import { CardListComponent } from './card-list/card-list.component';
 import { HeverNotficationComponent } from './hever-notfication/hever-notfication.component';
 import { UserPageComponent } from './user-page/user-page.component'
+import { PersonalNotificationComponent } from './personal-notification/personal-notification.component'
 
 const routes: Routes = [
+  { path: 'personalnotification', component: PersonalNotificationComponent },
   { path: 'hevernotification', component: HeverNotficationComponent },
   { path: 'hever', component: HeverComponent },
   { path: '', component: CardListComponent },

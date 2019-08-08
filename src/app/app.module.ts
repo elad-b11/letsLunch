@@ -36,6 +36,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import {
      MatTableModule,MatMenuModule, MatProgressSpinnerModule
 } from '@angular/material';
+import { PersonalNotificationComponent } from './personal-notification/personal-notification.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {
     MainNavComponent,
     HeverComponent,
     HeverNotficationComponent,
-    UserPageComponent
+    UserPageComponent,
+    PersonalNotificationComponent
   ],
   imports: [
     BrowserModule,
