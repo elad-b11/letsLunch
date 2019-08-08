@@ -1,1 +1,14 @@
-<p>hever-notfication works!</p>
+<div class="event-container">
+    <div class="title">בקשות לכרטיסי חבר</div>
+        <div *ngFor="let notification of notifications;let i = index">
+            <div class="notification">
+                    <button id="remove-hever-ask" mat-mini-fab (click)="removeHever(index)">
+                            <mat-icon>remove</mat-icon>
+                          </button>
+                    <div><span class="details"> שם : {{notification.Name}}</span></div>
+                    <div><span class="details"> טלפון : {{notification.Tel}}</span></div>
+                   <div><span class="details"> תאריך : {{notification.Date}}</span></div> 
+            </div>
+                    
+        </div>
+    </div>
