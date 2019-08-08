@@ -25,7 +25,8 @@ export class EventCardComponent implements OnInit {
     const dialogRef = this.dialog.open(OrderDialogComponent, {
       width: '25%',
       data: {
-        restaurantName: this.restaurantName
+        restaurantName: this.restaurantName,
+        id: this.id
       },
       height: '50vh',
       direction: 'rtl',
@@ -40,4 +41,5 @@ export class EventCardComponent implements OnInit {
   @Input() isJoinable:Boolean
   @Input() canOrderFrom:Boolean
   @Input() description:string
+  @Input() id:string
 }

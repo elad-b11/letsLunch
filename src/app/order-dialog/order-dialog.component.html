@@ -1,13 +1,13 @@
 <div class="dialog-container">
     <div class="dialog-title">מה תרצה שנביא מ{{data.restaurantName}} ?</div>
-    <textarea class="order-content"></textarea>
+    <textarea class="order-content" #contant></textarea>
     <mat-form-field>
             <mat-label>איך תשלם</mat-label>
-            <mat-select>
+            <mat-select #paymentKind>
             <mat-option *ngFor="let option of options" [value]="option.value">
                 {{option.displayName}}
             </mat-option>
             </mat-select>
     </mat-form-field>
-    <button mat-button class="order-button" (click)="onRequest()">בקש</button>
+    <button mat-button class="order-button" (click)="onRequest(contant.value, paymentKind.value)">בקש</button>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, NgZone, ViewChild} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { EventNotificationsApiService } from '../event-notifications-api.service';
 
 @Component({
   selector: 'app-order-dialog',
@@ -9,7 +10,8 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 export class OrderDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<OrderDialogComponent>, 
-              @Inject(MAT_DIALOG_DATA) public data) { }
+              @Inject(MAT_DIALOG_DATA) public data,
+              public notificationsApi: EventNotificationsApiService) { }
 
   ngOnInit() {
   }
@@ -22,17 +24,19 @@ export class OrderDialogComponent implements OnInit {
 
   }
 
-  onRequest() {
+  onRequest(contant, paymentKind) {
+    this.notificationsApi.createEventNotification(1, contant, paymentKind, this.data.id)
+    
     this.dialogRef.close();
   }
 
   options:object[] = [
     {
-      value:"0", 
+      value:"cash", 
       displayName: "מזומן"
     },
     {
-      value: "1",
+      value: "credit",
       displayName: "דרך אפליקציה"
     }
   ];
