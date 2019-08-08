@@ -35,6 +35,22 @@ export class EventsApiService {
     });
   }
 
+  updateEvent(restaurantName, eventDate, attendees, isJoinable, canOrderFrom, description, id):Promise<string> {
+    let eventObj = {
+      restaurantName,
+      eventDate: new Date(eventDate),
+      attendees,
+      isJoinable,
+      canOrderFrom,
+      description
+    }
+    return new Promise((resolve, reject) => {
+      this.httpClient.put(`${this.baseUrl}/${id}`, eventObj).subscribe((resultId) => {
+            resolve(resultId.toString());
+      });
+    });
+  }
+
   deleteEvent(eventId):Promise<string> {
     return new Promise((resolve,reject) => {
       this.httpClient.delete(`${this.baseUrl}/${eventId}`).subscribe((deletedId) => {

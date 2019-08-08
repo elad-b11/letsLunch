@@ -16,14 +16,6 @@ export class OrderDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCloseCancel() {
-
-  }
-
-  onCloseConfirm() {
-
-  }
-
   onRequest(contant, paymentKind) {
     this.notificationsApi.createEventNotification(1, contant, paymentKind, this.data.id)
     

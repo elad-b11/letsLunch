@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialog, DialogPosition} from '@angular/material/dialog';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
+import { EventsApiService } from '../events-api.service';
 
 @Component({
   selector: 'app-event-card',
@@ -10,15 +11,35 @@ import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 })
 export class EventCardComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar, public dialog: MatDialog) {}
+  constructor(private _snackBar: MatSnackBar, 
+              public dialog: MatDialog,
+              public eventsApi:EventsApiService) {}
 
   ngOnInit() {
   }
 
   openSnackBar():void {
-    this._snackBar.open("בקשה נשלחה", "OK", {
-      duration: 2000,
-    });
+    let userName = "אלעד";
+
+    if(this.attendees.includes(userName)) {
+      this._snackBar.open("יוזר כבר קיים באירוע", "OK", {
+        duration: 2000,
+      });  
+    } else {
+      this.eventsApi.updateEvent(this.restaurantName, 
+                                 this.eventDate, 
+                                 [...this.attendees, userName], 
+                                 this.isJoinable, 
+                                 this.canOrderFrom, 
+                                 this.description, 
+                                 this.id).then((data) => {
+                                  this.attendees.push(userName);
+                                 });
+
+      this._snackBar.open("בקשה נשלחה", "OK", {
+        duration: 2000,
+      });  
+    }
   }
 
   openOrderDialog():void {
